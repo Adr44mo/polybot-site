@@ -2,40 +2,75 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Test PolyChat</title>
+  <title>Site de Polytech Sorbonne</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    .chat-button {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 16px 24px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    .chat-iframe-container {
+      position: fixed;
+      bottom: 90px;
+      right: 32px;
+      width: 400px;
+      height: 600px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1001;
+    }
+    .chat-iframe-container.active {
+      display: block;
+    }
+    .chat-close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      color: #1976d2;
+      cursor: pointer;
+    }
+    .chat-title {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: #1976d2;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenue sur la démo de PolyChat</h1>
+  <h1 style="margin: 40px;">Site de Polytech Sorbonne</h1>
 
-  <iframe id="chatbot-frame" 
-          style="display: none; position: fixed; bottom: 0; right: 80px; width: 400px; height: 600px; 
-                 border: 1px solid #ddd; z-index: 1000; background-color: white;"></iframe>
+  <button class="chat-button" onclick="document.querySelector('.chat-iframe-container').classList.add('active')">
+    💬 Chat Polybot
+  </button>
 
-  <button id="chatbot-toggle" 
-          style="position: fixed; bottom: 20px; right: 20px; z-index: 1001; background-color: #007bff; 
-                 color: white; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer;">💬</button>
-
-  <script>
-    (function() {
-      let visitorId = localStorage.getItem("visitorId");
-      if (!visitorId) {
-        visitorId = Math.random().toString(36).substring(2) + Date.now().toString(36);
-        localStorage.setItem("visitorId", visitorId);
-      }
-
-      const chatbotURL = "https://stage-chatbot-polytech.onrender.com/?user_id=" + visitorId;
-      document.getElementById("chatbot-frame").src = chatbotURL;
-    })();
-
-    const chatbotFrame = document.getElementById("chatbot-frame");
-    const chatbotToggle = document.getElementById("chatbot-toggle");
-    let isOpen = false;
-
-    chatbotToggle.addEventListener("click", function () {
-      chatbotFrame.style.display = isOpen ? "none" : "block";
-      isOpen = !isOpen;
-      chatbotToggle.innerHTML = isOpen ? "<span style='color: white;'>X</span>" : "💬";
-    });
-  </script>
+  <div class="chat-iframe-container">
+    <button class="chat-close" onclick="document.querySelector('.chat-iframe-container').classList.remove('active')">&times;</button>
+    <div class="chat-title">Polybot</div>
+    <iframe
+      src="https://134.157.105.72/chatbot"
+      width="100%"
+      height="90%"
+      style="border:none; border-radius:12px;"
+      allow="clipboard-write"
+      title="Polybot Chatbot"
+    ></iframe>
+  </div>
 </body>
 </html>
