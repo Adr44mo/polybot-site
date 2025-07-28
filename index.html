@@ -7,49 +7,52 @@
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
     .chat-button {
       position: fixed;
-      bottom: 32px;
-      right: 32px;
+      bottom: 2rem;
+      right: 2rem;
       background: #1976d2;
       color: white;
       border: none;
-      border-radius: 50px;
-      padding: 16px 24px;
-      font-size: 18px;
+      border-radius: 3.125rem;
+      padding: 1rem 1.5rem;
+      font-size: 1.125rem;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.2);
       z-index: 1000;
     }
     .chat-iframe-container {
       position: fixed;
-      bottom: 90px;
-      right: 32px;
-      width: 400px;
-      height: 600px;
+      bottom: 5.625rem;
+      right: 2rem;
+      width: 25rem;
+      height: 40rem;
       background: white;
-      border-radius: 16px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+      border-radius: 1rem;
+      box-shadow: 0 0.125rem 1rem rgba(0,0,0,0.3);
       display: none;
       z-index: 1001;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     .chat-iframe-container.active {
       display: block;
     }
     .chat-close {
       position: absolute;
-      top: 8px;
-      right: 12px;
+      top: 0.5rem;
+      right: 0.75rem;
       background: transparent;
       border: none;
-      font-size: 22px;
+      font-size: 1.375rem;
       color: #1976d2;
       cursor: pointer;
     }
     .chat-title {
       text-align: center;
       font-weight: bold;
-      margin-top: 18px;
-      margin-bottom: 8px;
+      margin-top: 0.75rem;
+      margin-bottom: 0.5rem;
       color: #1976d2;
+      font-size: 1.25rem;
     }
   </style>
 </head>
@@ -66,7 +69,7 @@
     <iframe
       src="https://134.157.105.72/chatbot"
       width="100%"
-      height="90%"
+      height="92.5%"
       style="border:none; border-radius:12px;"
       allow="clipboard-write"
       title="Polybot Chatbot"
